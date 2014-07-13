@@ -24,5 +24,13 @@ febDates <- which(datDate >= strptime("2007-02-01", format = "%Y-%d-%m", tz = "G
 
 subDat <- dat[febDates,]
 
+Global_active_power <- suppressWarnings(as.numeric(dat$Global_active_power))
 
+hist(Global_active_power, col = "red")
+
+plotName <- "plot1.png"
+
+dev.copy(png, plotName)
+
+dev.off()
 
