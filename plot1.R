@@ -20,11 +20,11 @@ dat <- read.csv(fileName, sep=";", stringsAsFactors = FALSE)
 
 datDate <- as.POSIXct(strptime(dat$Date, format = "%d/%m/%Y", tz = "GMT"))
 
-febDates <- which(datDate >= strptime("2007-02-01", format = "%Y-%d-%m", tz = "GMT") & datDate <= strptime("2007-02-02", format = "%Y-%d-%m", tz = "GMT"))
+febDates <- which(datDate >= strptime("2007-02-01", format = "%Y-%m-%d", tz = "GMT") & datDate <= strptime("2007-02-02", format = "%Y-%m-%d", tz = "GMT"))
 
 subDat <- dat[febDates,]
 
-Global_active_power <- suppressWarnings(as.numeric(dat$Global_active_power))
+Global_active_power <- suppressWarnings(as.numeric(subDat$Global_active_power))
 
 hist(Global_active_power, col = "red")
 

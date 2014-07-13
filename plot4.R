@@ -1,5 +1,5 @@
 ######## R script to read power consumption data from UCI 
-# and make plot 1 for Coursera exdata-004
+# and make plot 2 for Coursera exdata-004
 # 7-7-2014
 # Raymond Nelson
 #
@@ -24,3 +24,14 @@ febDates <- which(datDate >= strptime("2007-02-01", format = "%Y-%d-%m", tz = "G
 
 subDat <- dat[febDates,]
 
+Global_active_power <- suppressWarnings(as.numeric(subDat$Global_active_power))
+
+dateTime <- strptime(paste(subDat$Date, subDat$Time), format="%Y-%m-%d %H:%M:%S")
+
+
+
+plotName <- "plot2.png"
+
+dev.copy(png, plotName)
+
+dev.off()
